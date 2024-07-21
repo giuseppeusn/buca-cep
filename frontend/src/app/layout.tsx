@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Open_Sans } from "next/font/google";
+import "react-toastify/dist/ReactToastify.css";
+import { Barlow } from "next/font/google";
+import { ToastContainer } from "react-toastify";
 
-const openSans = Open_Sans({
+const barlow = Barlow({
   subsets: ["latin"],
-  display: "swap",
-  variable: "--font-opensans",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -19,8 +20,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
-      <body className={`${openSans.variable} font-sans bg-gray-800`}>
+    <html lang="pt-br">
+      <body className={`${barlow.className} bg-gray-800`}>
+        <ToastContainer />
         {children}
       </body>
     </html>
