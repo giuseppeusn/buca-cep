@@ -6,7 +6,7 @@ Projeto de um buscador de CEP utilizando Next.js para o frontend, Node.js para o
 > TypeScript, Node.js, Next.js, Express.js, Tailwind CSS
 
 ## Rodando o projeto
-> 1 - Clone o projeto <br>
+> 1 - Clone o <a href="https://github.com/giuseppeusn/busca-cep.git">projeto</a> <br>
 > 2 - Entre no diretório `/busca-cep`, execute o terminal, digite o comando `npm run setup` e aguarde finalizar a instalação das dependências <br>
 > 3 - No mesmo diretório e terminal, digite o comando `npm run start` e aguarde as aplicações iniciarem <br>
 > 4 - Acesse `http://localhost:3000` no navegador <br>
