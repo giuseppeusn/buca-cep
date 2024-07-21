@@ -1,6 +1,6 @@
 # BUSCA CEP
 
-Projeto de um buscador de CEP utilizando Next.js para o frontend e Node.js para o backend
+Projeto de um buscador de CEP utilizando Next.js para o frontend, Node.js para o backend e uma API terceira para buscar as informações.
 
 ## Desenvolvido utilizando
 > TypeScript, Node.js, Next.js, Express.js, Tailwind CSS
