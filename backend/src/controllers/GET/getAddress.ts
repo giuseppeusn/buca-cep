@@ -17,10 +17,12 @@ export default async function getAddress(req: Request, res: Response) {
 
     const data: CepApiType = await response.json();
 
-    if (!data.ok) {
+    if (!data.ok && Object.keys(data).length === 0) {
       return res
         .status(404)
         .json({ message: "CEP não encontrado", result: null });
+    } else if (!data.ok) {
+      return res.status(400).json({ message: data.message, result: null });
     }
 
     const sanitizedData: CepType = {

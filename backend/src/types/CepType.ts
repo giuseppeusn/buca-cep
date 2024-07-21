@@ -14,5 +14,6 @@ export type CepApiType = {
   city: string;
   district: string;
   address: string;
+  message?: string;
   statusText: string;
 };
