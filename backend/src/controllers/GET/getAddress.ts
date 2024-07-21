@@ -8,7 +8,7 @@ export default async function getAddress(req: Request, res: Response) {
   if (params.error) {
     const { message } = params.error.issues[0];
 
-    return res.status(400).json({ status: false, error: message });
+    return res.status(400).json({ message, result: null });
   }
 
   try {
@@ -20,7 +20,7 @@ export default async function getAddress(req: Request, res: Response) {
     if (!data.ok) {
       return res
         .status(404)
-        .json({ status: false, error: "CEP não encontrado" });
+        .json({ message: "CEP não encontrado", result: null });
     }
 
     const sanitizedData: CepType = {
@@ -31,8 +31,10 @@ export default async function getAddress(req: Request, res: Response) {
       state: data.state,
     };
 
-    return res.status(200).json({ status: true, data: sanitizedData });
+    return res
+      .status(200)
+      .json({ message: "CEP encontrado", result: sanitizedData });
   } catch (error) {
-    return res.status(400).json({ status: false, error });
+    return res.status(400).json({ message: error, result: null });
   }
 }
