@@ -1,4 +1,4 @@
-export default function CepMask(cep: string) {
+export default function cepMask(cep: string) {
   return cep
     .replace(/\D/g, "")
     .replace(/(\d{5})(\d)/, "$1-$2")

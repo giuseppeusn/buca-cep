@@ -4,7 +4,7 @@ import AddressCard from "@/components/AddressCard";
 import Logo from "@/components/Logo";
 import getAddress from "@/hooks/getAddress";
 import { CepType } from "@/types/CepType";
-import CepMask from "@/utils/cepMask";
+import cepMask from "@/utils/cepMask";
 import { cn } from "@/utils/cn";
 import { useState } from "react";
 import { toast } from "react-toastify";
@@ -82,7 +82,7 @@ export default function Home() {
             placeholder="Digite o CEP que deseja buscar..."
             className="text-gray-700 w-full h-14 p-3 outline-none rounded-lg text-md lg:text-lg transition-all ease-in-out duration-500 font-semibold absolute"
             onChange={(e) => {
-              setCep(CepMask(e.target.value));
+              setCep(cepMask(e.target.value));
               open && setOpen(false);
             }}
             onFocus={() => setOpen(false)}

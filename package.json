@@ -1,0 +1,19 @@
+{
+  "name": "busca-cep",
+  "version": "1.0.0",
+  "description": "Projeto de um buscador de CEP utilizando Next.js para o frontend e Node.js para o backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
+    "start:frontend": "cd frontend && npm run dev",
+    "start:backend": "cd backend && npm run dev",
+    "setup": "concurrently \"npm run setup:frontend\" \"npm run setup:backend\"",
+    "setup:frontend": "cd frontend && npm i",
+    "setup:backend": "cd backend && npm i"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
