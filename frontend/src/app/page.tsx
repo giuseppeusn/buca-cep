@@ -1,36 +1,31 @@
 "use client";
 
+import AddressCard from "@/components/AddressCard";
 import Logo from "@/components/Logo";
+import { CepType } from "@/types/CepType";
 import CepMask from "@/utils/cepMask";
 import { cn } from "@/utils/cn";
 import { useState } from "react";
 
-type CepData = {
-  cep: string;
-  logradouro: string;
-  bairro: string;
-  localidade: string;
-  uf: string;
-};
-
 const mock = {
-  cep: "00000000",
-  logradouro: "Logradouro",
-  bairro: "Bairro",
-  localidade: "Cidade",
-  uf: "SP",
+  code: "zipcode",
+  state: "state",
+  city: "city",
+  district: "district",
+  address: "address",
 };
 
 export default function Home() {
   const [cep, setCep] = useState("");
+  const [data, setData] = useState<CepType>();
 
-  const [data, setData] = useState<CepData | null>(null);
+  const [open, setOpen] = useState(false);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center text-white">
       <div
         className={cn(
-          data ? "scale-75 -translate-y-56" : "scale-100",
+          open ? "-translate-y-16" : "translate-y-0",
           "flex flex-col justify-center items-center md:w-1/2 space-y-5 w-full px-7 md:px-0 transition-all duration-500"
         )}
       >
@@ -51,10 +46,18 @@ export default function Home() {
           </button>
         </div>
       </div>
+      <div
+        className={cn(
+          open ? "opacity-100 !translate-y-44 z-10" : "opacity-0",
+          "w-1/3 translate-y-28 transition-all duration-500 absolute -z-20"
+        )}
+      >
+        <AddressCard {...mock} />
+      </div>
       <button
         type="button"
         className="bg-gray-700 text-white px-3 py-2 m-2 outline-none rounded-lg text-lg transition-all ease-in-out duration-500 font-semibold absolute right-0 hover:bg-gray-600"
-        onClick={() => setData(data ? null : mock)}
+        onClick={() => setOpen(!open)}
       >
         Teste
       </button>
